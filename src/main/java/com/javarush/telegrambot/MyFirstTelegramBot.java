@@ -101,6 +101,15 @@ public class MyFirstTelegramBot extends MultiSessionTelegramBot {
         TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
         telegramBotsApi.registerBot(new MyFirstTelegramBot());
     }
+
+    SetWebhook setWebhook = new SetWebhook();
+        setWebhook.setUrl("https://your-app-name.up.railway.app/webhook"); // Укажите URL своего сервера
+        try {
+        telegramBotsApi.registerBot(new MyFirstTelegramBot());
+        telegramBotsApi.execute(setWebhook);  // Устанавливаем Webhook
+    } catch (TelegramApiException e) {
+        e.printStackTrace();
+    }
 }
 
 
