@@ -97,23 +97,9 @@ public class MyFirstTelegramBot extends MultiSessionTelegramBot {
 
     }
 
-//    public static void main(String[] args) throws TelegramApiException {
-//        TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
-//        telegramBotsApi.registerBot(new MyFirstTelegramBot());
-//    }
-
-    public static void main(String[] args) {
-        try {
-            TelegramBotsApi botsApi = new TelegramBotsApi(DefaultBotSession.class);
-            MyFirstTelegramBot bot = new MyFirstTelegramBot();
-
-            SetWebhook setWebhook = new SetWebhook();
-            setWebhook.setUrl("https://your-app-name.up.railway.app/webhook"); // Вставь свой Railway URL
-
-            botsApi.registerBot(bot, setWebhook);
-        } catch (TelegramApiException e) {
-            e.printStackTrace();
-        }
+    public static void main(String[] args) throws TelegramApiException {
+        TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
+        telegramBotsApi.registerBot(new MyFirstTelegramBot());
     }
 
 }
